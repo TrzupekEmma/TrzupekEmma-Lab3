@@ -14,8 +14,24 @@ public class WordCounter {
 		throw new InvalidStopwordException();
 	}
 	public StringBuffer processFile(String path) throws EmptyFileException{
-		
-		StringBuffer buf=stringBuffer(String str);
+		Scanner s = new Scanner(new File(path));
+		if(!s.hasNext){
+			throw new EmptyFileException();
+		}
+		String str="";
+		while(s.hasNextLine){
+			str+=s.nextLine()+" ";
+		}
+		StringBuffer buf=stringBuffer(str);
+	}
+	public static void main(){
+		Scanner kb=new Scanner(system.in);
+		for(int choice=-1;choice!=1&&choice!=2;choice=kb.nextInt()){
+			print("Would you like to (1) process a file or (2) process text?\n");
+		}
+		if(choice==1){
+			
+		}
 	}
 }
 
