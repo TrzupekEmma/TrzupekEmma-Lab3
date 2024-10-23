@@ -29,8 +29,32 @@ public class WordCounter {
 		for(int choice=-1;choice!=1&&choice!=2;choice=kb.nextInt()){
 			print("Would you like to (1) process a file or (2) process text?\n");
 		}
-		if(choice==1){
-			
+		if(choice==1){		
+			while(true){
+				try{
+					print("Input the path\n");
+					String path=kb.next();
+					String stopWord=kb.next();
+					while(kb.hasNext()){kb.next()}
+					processFile(processFile(path),stopWord);
+				}catch(Exception e){
+					continue;
+				}
+				break;
+			}
+		}
+		if(choice==2){		
+			while(true){
+				try{
+					print("Input the text\n");
+					String text=kb.next();
+					String stopWord=kb.next();
+					processFile(text,stopWord);
+				}catch(Exception e){
+					continue;
+				}
+				break;
+			}
 		}
 	}
 }
