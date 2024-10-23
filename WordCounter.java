@@ -13,8 +13,9 @@ public class WordCounter {
 		} 
 		throw new InvalidStopwordException();
 	}
-	public StringBuffer processFile(String input) throws EmptyFileException{
-
+	public StringBuffer processFile(String path) throws EmptyFileException{
+		
+		StringBuffer buf=stringBuffer(String str);
 	}
 }
 
