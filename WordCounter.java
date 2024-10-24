@@ -24,10 +24,21 @@ public class WordCounter {
 		} 
 		throw new InvalidStopwordException("Couldn't find stopword: "+stopword);
 	}
-	public static StringBuffer processFile(String path) throws FileNotFoundException, EmptyFileException{
-		System.out.println("Processing file "+path);
-		Scanner s = new Scanner(new File(path));
-		if(!s.hasNext()){
+	public static StringBuffer processFile(String path) throws EmptyFileException{ 
+		String cPath=path;
+		Scanner kb=new Scanner(System.in);
+		Scanner s;
+		while(true){
+			try{
+				s=new Scanner(new File(cPath));
+			}catch(Exception e){
+				System.out.println("Input the text");
+				cPath=kb.next();
+				continue;
+			}
+			break;
+		}if(!s.hasNext()){
+			System.out.println("Empty exception\n");
 			throw new EmptyFileException(path+" was empty");
 		}
 		String str="";
