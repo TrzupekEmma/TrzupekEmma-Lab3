@@ -2,28 +2,40 @@ import java.util.regex.*;
 import java.util.Scanner;
 import java.io.*;
 public class WordCounter {
-	public static int processText(StringBuffer text,String stopword) throws InvalidStopwordException{
+	public static int processText(StringBuffer text,String stopword) throws TooSmallText, InvalidStopwordException{
 		Pattern regex = Pattern.compile("\\b[a-zA-Z0-9']+");
 		Matcher regexMatcher = regex.matcher(text);
-		int count=0;
+		int count=1;
 		while (regexMatcher.find()) {
 		    	String word=regexMatcher.group();
 			if(word.equals(stopword)){
+				if(count<5){
+					throw new TooSmallText("Only found "+(count+1)+" words.");
+				}
 				return(count);
 			}
 			count++;
+		}
+		if(count<6){
+			throw new TooSmallText("Only found "+(count-1)+" words.");
+		}
+		if(stopword==null){
+			return(count-1);
 		} 
-		throw new InvalidStopwordException();
+		throw new InvalidStopwordException("Couldn't find stopword: "+stopword);
 	}
 	public static StringBuffer processFile(String path) throws FileNotFoundException, EmptyFileException{
 		System.out.println("Processing file "+path);
 		Scanner s = new Scanner(new File(path));
 		if(!s.hasNext()){
-			throw new EmptyFileException();
+			throw new EmptyFileException(path+" was empty");
 		}
 		String str="";
-		while(s.hasNextLine()){
-			str+=s.nextLine()+" ";
+		if(s.hasNextLine()){
+			str+=s.nextLine();
+			while(s.hasNextLine()){
+				str+=" "+s.nextLine();
+			}
 		}
 		StringBuffer buf=new StringBuffer(str);
 		return(buf);
@@ -39,9 +51,9 @@ public class WordCounter {
 			while(true){
 				try{
 					System.out.println("Input the path");
-					String path=args.length>fileProgress?args[fileProgress++]:kb.next();
+					String path=args.length<fileProgress?args[fileProgress++]:kb.next();
 					System.out.println("Input the stop Word");
-					String stopWord=args.length>fileProgress?args[fileProgress++]:kb.next();
+					String stopWord=args.length<fileProgress?args[fileProgress++]:kb.next();
 					System.out.println(processText(processFile(path),stopWord));
 				}catch(Exception e){
 					System.out.println("Exception found");
@@ -54,9 +66,9 @@ public class WordCounter {
 			while(true){
 				try{
 					System.out.println("Input the text");
-					String text=args.length>fileProgress?args[fileProgress++]:kb.nextLine();
+					String text=args.length<fileProgress?args[fileProgress++]:kb.nextLine();
 					System.out.println("Input the stop Word");
-					String stopWord=args.length>fileProgress?args[fileProgress++]:kb.next();
+					String stopWord=args.length<fileProgress?args[fileProgress++]:kb.next();
 					System.out.println(processText(new StringBuffer(text),stopWord));
 				}catch(Exception e){
 					System.out.println("Found exception");
