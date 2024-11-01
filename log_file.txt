@@ -1,0 +1,53 @@
+commit 0c4bb9b4cc779c04ebce49dfce3178ffc0439057
+Author: TrzupekEmma <supertrzup17@hotmail.com>
+Date:   Wed Oct 23 22:09:18 2024 -0400
+
+    final all tests
+
+commit 1681cbcf6b73daf341668e45668e98960afbba2d
+Author: TrzupekEmma <supertrzup17@hotmail.com>
+Date:   Wed Oct 23 21:31:29 2024 -0400
+
+    all but one tests done
+
+commit 7d462ebe6c748cb618fc291ede715c6c20c413e3
+Author: TrzupekEmma <supertrzup17@hotmail.com>
+Date:   Wed Oct 23 17:34:42 2024 -0400
+
+    pre testing final
+
+commit 236549f118fe54e7df23645c3022415c5df1fd2a
+Author: TrzupekEmma <supertrzup17@hotmail.com>
+Date:   Wed Oct 23 16:47:53 2024 -0400
+
+    done with coding, time for bug testing
+
+commit 0408449b363302d3d85823744056585636c5cbeb
+Author: TrzupekEmma <supertrzup17@hotmail.com>
+Date:   Wed Oct 23 16:31:19 2024 -0400
+
+    midway through io
+
+commit 69a6a24f4abef247d2f3a3c11f808671986b3247
+Author: TrzupekEmma <supertrzup17@hotmail.com>
+Date:   Wed Oct 23 16:19:28 2024 -0400
+
+    getting started on fileio
+
+commit 6197d3525e63af656ef054c8811db9f0fe587ca2
+Author: TrzupekEmma <supertrzup17@hotmail.com>
+Date:   Wed Oct 23 16:06:47 2024 -0400
+
+    started work on exceptions
+
+commit 490e47389f1dc2448f6a242a59a1d2b6a3477eb0
+Author: TrzupekEmma <supertrzup17@hotmail.com>
+Date:   Wed Oct 23 15:55:23 2024 -0400
+
+    added starter files
+
+commit 1f6f93b389fad7dab3ef92166dd06f4c90b94600
+Author: TrzupekEmma <149273722+TrzupekEmma@users.noreply.github.com>
+Date:   Wed Oct 23 15:41:04 2024 -0400
+
+    Initial commit
